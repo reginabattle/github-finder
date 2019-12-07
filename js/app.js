@@ -1,4 +1,8 @@
+import 'babel-polyfill';
+import { GithubFinder } from './library';
+
 const http = new GithubFinder
+
 const container = document.querySelector('.github-finder')
 const form = document.querySelector('.github-finder-search')
 let content = document.querySelector('.github-finder-results')

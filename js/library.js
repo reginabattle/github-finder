@@ -6,8 +6,9 @@ class GithubFinder {
 
         if(response.status === 200) {
             return data
-        }
-        
+        } 
     }
 }
+
+export { GithubFinder }
 
