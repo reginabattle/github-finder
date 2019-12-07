@@ -22,7 +22,7 @@ const showProfile = (user) => {
 			<button class="bookmark-button"><i class="material-icons">bookmark_border</i></button>
 		</div>`
 
-	content.innerHTML += userInfo
+	content.innerHTML = userInfo
 }
 
 const showError = (message) => {

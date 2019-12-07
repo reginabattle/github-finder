@@ -96,8 +96,7 @@ a:hover {
 /* Card
 ---------------------------*/
 .user-card {
-	display: flex;
-    flex-wrap: wrap;
+	width: 100%;
 	margin: 2rem 0;
 	padding: 2rem 3rem;
 	border-radius: 3px;
@@ -220,9 +219,5 @@ input[type="text"]:focus {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-	}
-
-	.user-card {
-		width: 48%;
 	}
 }
