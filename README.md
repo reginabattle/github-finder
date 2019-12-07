@@ -10,7 +10,7 @@ A vanilla JavaScript web app to search Github profiles — retrieving user info 
 npm install
 ``
 
-### Build
+### Build for production
 ``
 npm run build
 ``

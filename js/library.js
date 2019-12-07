@@ -1,14 +1,15 @@
 class GithubFinder {
-    // GET
-    async getUser(url) {
-        const response = await fetch(url)
-        const data = await response.json()
+    // Get user
+    async getUser(user) {
+        const profileData = await fetch(`https://api.github.com/users/${user}`)
+        const profile = await profileData.json()
 
-        if(response.status === 200) {
-            return data
-        } 
+        const repoData = await fetch(`https://api.github.com/users/${user}`)
+        const repos = await repoData.json()
+
+        if(profileData.status === 200) {
+            return {profile, repos}
+        }
     }
 }
-
 export { GithubFinder }
-
