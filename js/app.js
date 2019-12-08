@@ -20,8 +20,6 @@ const showProfile = user => {
 		</div>
 		
 		${ user.bio ? `<div class="user-bio"><p>${user.bio}</p></div>` : '' }
-
-		${user.blog}
 		
 		<div class="repos">
 			<h3>Repos</h3>
