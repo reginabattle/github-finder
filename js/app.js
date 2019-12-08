@@ -9,20 +9,37 @@ let content = document.querySelector('.github-finder-results')
 let username = document.querySelector('#username')
 
 const showProfile = (user) => {
-	let userInfo = 
-		`<div class="user-card">
-			<div class="user-header">
-				<img class="user-avatar" src="${user.avatar_url}" alt="${user.name}">
-				<h3 class="user-name">${user.name} 
-					<span><a href="${user.html_url}">${user.login}</a>
-				</h3>
-				<p class="user-status ${user.hireable ? '' : 'disabled' }">${user.hireable ? 'For hire' : 'Busy' }</p>
-			</div>
-			${user.bio ? `<div class="user-bio"><p>${user.bio}</p></div>` :' '}
-			<button class="bookmark-button"><i class="material-icons">bookmark_border</i></button>
-		</div>`
+	let profile = 
+	`<div class="user-card">
+		<div class="user-header">
+			<img class="user-avatar" src="${user.avatar_url}" alt="${user.name}">
+			<h2 class="user-name">${user.name} 
+				<span><a href="${user.html_url}">${user.login}</a>
+			</h2>
+			<p class="user-status ${ user.hireable ? '' : 'disabled' }">${ user.hireable ? 'For hire' : 'Busy' }</p>
+		</div>
+		
+		${ user.bio ? `<div class="user-bio"><p>${user.bio}</p></div>` : '' }
+		
+		<div class="repos">
+			<h3>Repos</h3>
+			<ul class="repo-list"></ul>
+		</div>
+	</div>`
 
-	content.innerHTML = userInfo
+	content.innerHTML = profile
+}
+
+const showRepos = (repos) => {
+	let repoList = ''
+	repos.forEach(repo => {
+		repoList += 
+		`<li>
+			<h4><a href="${repo.html_url}">${repo.name}</a></h4>
+			${repo.description ? `<p>${repo.description}</p>` : ''}
+		</li>`
+	})
+	document.querySelector('.repo-list').innerHTML = repoList
 }
 
 const showError = (message) => {
@@ -47,7 +64,11 @@ form.addEventListener('submit', (e) => {
 		github.getUser(username.value)
 		.then(user => {
 			if(user) {
+				console.log('user', user)
+				console.log('repos', user.repos)
+
 				showProfile(user.profile)
+				showRepos(user.repos)
 
 			} else {
 				showError("User doesn't exist")
