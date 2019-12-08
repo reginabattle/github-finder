@@ -1,9 +1,10 @@
 class UI {
     constructor() {
-        this.container = document.querySelector('.github-finder'),
+        this.container = document.querySelector('.github-finder')
         this.results = document.querySelector('.github-finder-results')
     }
 
+    // Show profile
     showProfile(user) {
         let profile = 
         `<div class="user-card">
@@ -27,6 +28,7 @@ class UI {
         this.results.innerHTML = profile
     }
 
+    // Show repos
     showRepos(repos) {
         let list = document.querySelector('.repo-list')
         repos.forEach(repo => {
@@ -41,6 +43,7 @@ class UI {
         })
     }
 
+    // Show error message
     showError(message) {
         const header = document.querySelector('.github-finder h2')
         const div = document.createElement('div')
