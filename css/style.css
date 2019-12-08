@@ -4,20 +4,15 @@
 
 	--color-gray: #f6f8fa;
 	--color-gray-text: #586069;
-	--color-gray-light: #fafbfc;
 	--color-gray-dark: #24292e;
 
 	--color-blue: #0366d6;
-	--color-blue-light: #f1f8ff;
-
 	--color-green:#28a745;
-	--color-green-light: #dcffe4;
 
 	--color-red-light: #ffdce0;
 	--color-red: #cb2431;
-  }
+}
   
-
 /* Global
 ---------------------------*/
 *, ::before, ::after {
@@ -65,12 +60,6 @@ h4 {
 
 p {
 	margin: 0 0 2.4rem;
-}
-
-ul {
-    padding: 0;
-	margin: 2rem 0;
-	list-style: none;
 }
 
 a {
@@ -178,17 +167,6 @@ a:hover {
 	color: var(--color-gray-dark);
 }
 
-/* Bookmark */
-
-.bookmark-button {
-	background: none;
-    cursor: pointer;
-    border: none;
-	outline: none;
-	padding: 0;
-	margin-left: auto;
-}
-
 /* Repos
 ---------------------------*/
 .repos {
@@ -196,6 +174,8 @@ a:hover {
 }
 
 .repo-list {
+	padding: 0;
+	list-style: none;
 	margin: 0 0 2rem;
 }
 
