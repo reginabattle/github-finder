@@ -60,7 +60,7 @@ h3 {
 }
 
 h4 {
-	margin-bottom: 0.6rem;
+	margin: 0;
 }
 
 p {
@@ -69,7 +69,8 @@ p {
 
 ul {
     padding: 0;
-    margin: 2rem 0;
+	margin: 2rem 0;
+	list-style: none;
 }
 
 a {
@@ -116,18 +117,22 @@ a:hover {
 	width: 100%;
 	display: flex;
 	align-items: center;
-	margin-bottom: 1.6rem;
-	padding-bottom: 1.6rem;
+	padding-bottom: 2rem;
     border-bottom: 1px solid lightgrey;
+}
+
+.user-info {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 /* Image */
 
 .user-avatar {
 	width: 100%;
-	max-width: 2rem;
-	max-width: 4rem;
-    margin-right: 0.8rem;
+	max-width: 6rem;
+    margin-right: 1.2rem;
 	border-radius: 100%;
 }
 
@@ -144,6 +149,17 @@ a:hover {
     font-weight: 300;
 }
 
+/* Bio */
+
+.user-bio {
+	width: 100%;
+	margin-top: 1.6rem;
+}
+
+.user-bio p {
+	margin: 0;
+}
+
 /* Hire status */
 
 .user-status {
@@ -151,7 +167,7 @@ a:hover {
 	color: #fff;
 	font-size: 1.2rem;
 	font-weight: 500;
-	margin: 0 0 0 auto;
+	margin: 1rem 0 auto auto;
 	padding: 0.5rem 0.8rem;
 	border-radius: 4px;
 	box-shadow: 0 1px 1px rgba(27,31,35,0.1)
@@ -175,17 +191,20 @@ a:hover {
 
 /* Repos
 ---------------------------*/
+.repos {
+	margin-top: 3rem;
+}
+
 .repo-list {
-	list-style: disc;
-	margin: 2rem 0 0 2.2rem;
+	margin: 0 0 2rem;
 }
 
 .repo-list li {
+	padding: 1.6rem 0;
 	border-bottom: 1px solid #ddd;
 }
 
 .repo-list li:last-child {
-	padding-bottom: 0.8rem;
 	border-bottom: none;
 }
 
@@ -256,5 +275,16 @@ input[type="text"]:focus {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+	}
+
+	.repo-list li {
+		display: flex;
+		flex: 1;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.repo-list li * {
+		flex: 1;
 	}
 }

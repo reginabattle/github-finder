@@ -12,14 +12,15 @@ const showProfile = user => {
 	let profile = 
 	`<div class="user-card">
 		<div class="user-header">
-			<img class="user-avatar" src="${user.avatar_url}" alt="${user.name}">
-			<h2 class="user-name">${user.name} 
-				<span><a href="${user.html_url}">${user.login}</a>
-			</h2>
+			<div class="user-info">
+				<img class="user-avatar" src="${user.avatar_url}" alt="${user.name}">
+				<h2 class="user-name">${user.name} 
+					<span><a href="${user.html_url}">${user.login}</a>
+				</h2>
+				${ user.bio ? `<div class="user-bio"><p>${user.bio}</p></div>` : '' }
+			</div>
 			<p class="user-status ${ user.hireable ? '' : 'disabled' }">${ user.hireable ? 'For hire' : 'Busy' }</p>
 		</div>
-		
-		${ user.bio ? `<div class="user-bio"><p>${user.bio}</p></div>` : '' }
 		
 		<div class="repos">
 			<h3>Repos</h3>
@@ -34,7 +35,12 @@ const showRepos = repos => {
 	let list = document.querySelector('.repo-list')
 	repos.forEach(repo => {
 		const li = document.createElement('li')
-		li.innerHTML = `<li><h4><a href="${repo.html_url}">${repo.name}</a></h4></li>`
+		li.innerHTML = 
+		`
+			<h4><a href="${repo.html_url}">${repo.name}</a></h4>
+			<span class="lang">${repo.language}</span>
+			<span class="date">${new Date(repo.updated_at)}</span>
+		`
 		list.appendChild(li)
 	})
 }
@@ -62,7 +68,10 @@ form.addEventListener('submit', (e) => {
 		.then(user => {
 			if(user) {
 				showProfile(user.profile)
-				showRepos(user.repos)
+
+				if(user.repos.length > 0) {
+					showRepos(user.repos)
+				}
 
 			} else {
 				showError("User doesn't exist")

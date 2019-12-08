@@ -10,6 +10,7 @@ module.exports = {
     devServer: {
         open: true
     },
+    watch: true,
     module: {
         rules: [
             {
