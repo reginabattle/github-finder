@@ -8,7 +8,7 @@ const form = document.querySelector('.github-finder-search')
 let content = document.querySelector('.github-finder-results')
 let username = document.querySelector('#username')
 
-const showProfile = (user) => {
+const showProfile = user => {
 	let profile = 
 	`<div class="user-card">
 		<div class="user-header">
@@ -20,6 +20,8 @@ const showProfile = (user) => {
 		</div>
 		
 		${ user.bio ? `<div class="user-bio"><p>${user.bio}</p></div>` : '' }
+
+		${user.blog}
 		
 		<div class="repos">
 			<h3>Repos</h3>
@@ -30,19 +32,16 @@ const showProfile = (user) => {
 	content.innerHTML = profile
 }
 
-const showRepos = (repos) => {
-	let repoList = ''
+const showRepos = repos => {
+	let list = document.querySelector('.repo-list')
 	repos.forEach(repo => {
-		repoList += 
-		`<li>
-			<h4><a href="${repo.html_url}">${repo.name}</a></h4>
-			${repo.description ? `<p>${repo.description}</p>` : ''}
-		</li>`
+		const li = document.createElement('li')
+		li.innerHTML = `<li><h4><a href="${repo.html_url}">${repo.name}</a></h4></li>`
+		list.appendChild(li)
 	})
-	document.querySelector('.repo-list').innerHTML = repoList
 }
 
-const showError = (message) => {
+const showError = message => {
 	const header = document.querySelector('.github-finder h2')
 	const div = document.createElement('div')
 
@@ -64,9 +63,6 @@ form.addEventListener('submit', (e) => {
 		github.getUser(username.value)
 		.then(user => {
 			if(user) {
-				console.log('user', user)
-				console.log('repos', user.repos)
-
 				showProfile(user.profile)
 				showRepos(user.repos)
 

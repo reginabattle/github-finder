@@ -55,11 +55,12 @@ h2 {
 }
 
 h3 {
-
+	font-size: 2.2rem;
+	margin: 0;
 }
 
 h4 {
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.6rem;
 }
 
 p {
@@ -69,8 +70,6 @@ p {
 ul {
     padding: 0;
     margin: 2rem 0;
-	list-style: disc;
-	margin: 2rem 0 0 3.2rem;
 }
 
 a {
@@ -172,6 +171,22 @@ a:hover {
 	outline: none;
 	padding: 0;
 	margin-left: auto;
+}
+
+/* Repos
+---------------------------*/
+.repo-list {
+	list-style: disc;
+	margin: 2rem 0 0 2.2rem;
+}
+
+.repo-list li {
+	border-bottom: 1px solid #ddd;
+}
+
+.repo-list li:last-child {
+	padding-bottom: 0.8rem;
+	border-bottom: none;
 }
 
 /* Form
