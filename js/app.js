@@ -12,8 +12,8 @@ let username = document.querySelector('#username')
 form.addEventListener('submit', (e) => {
 	e.preventDefault()
 
+	// Get user info
 	if(username.value !== '') {
-		// Get user info
 		github.getUser(username.value)
 		.then(user => {
 			if(user) {
@@ -32,5 +32,5 @@ form.addEventListener('submit', (e) => {
 	}
 
 	// Clear field
-	username.value = ''
+	ui.clearSeach()
 })

@@ -1,6 +1,7 @@
 class UI {
     constructor() {
         this.container = document.querySelector('.github-finder')
+        this.username = document.querySelector('#username').value
         this.results = document.querySelector('.github-finder-results')
     }
 
@@ -56,6 +57,10 @@ class UI {
             div.remove()
         }, 3000)
     }  
+
+    clearSeach() {
+        this.username = ''
+    }
 }
 
 export { UI }
